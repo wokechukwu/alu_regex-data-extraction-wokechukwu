@@ -1,0 +1,26 @@
+# Regex Validator Project - Requirements
+# Author: Okechukwu Wisdom Ikechukwu
+# Created: 2025
+
+# Core Python libraries (included in standard library)
+# - re (regular expressions)
+# - dataclasses (data classes)
+# - typing (type hints)
+
+# Python version requirement
+# Requires Python 3.9 or higher
+
+# To install optional dependencies:
+# pip install pytest black flake8 mypy
+
+# Usage:
+# python main.py                 # Run interactive text scan
+
+# Project Structure:
+# ├── core/
+# │   ├── extractors.py        # extract_all function
+# │   ├── regex_patterns.py    # Regex patterns
+# ├── main.py                  # Entry point
+# ├── README.md
+# ├── requirements.txt
+# └── .gitignore
