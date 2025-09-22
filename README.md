@@ -9,7 +9,6 @@ A comprehensive Python utility for extracting and validating various data types 
 ## 🚀 Features
 
 - **Interactive CLI** with comprehensive input validation
-- **Programmatic API** for integration into other projects
 - **Robust regex patterns** for common data types
 - **Cross-platform compatibility** (Windows, macOS, Linux)
 - **Comprehensive error handling** and input validation
@@ -63,128 +62,6 @@ The tool will display a menu with options for each data type. Each option includ
 - **Retry loops** until valid input is provided
 - **Clear feedback** on validation results
 
-### Programmatic API
-Import and use the validators in your own scripts:
-
-```python
-from alu_regex_data_extraction import (
-    EMAIL, URL, PHONE, CREDIT_CARD, TIME, HTML_TAG, HASHTAG, CURRENCY,
-    find_all_in_text, validate_examples
-)
-
-# Validate individual values
-print(EMAIL.is_match("user@example.com"))  # True
-print(PHONE.is_match("(123) 456-7890"))    # True
-
-# Extract all data types from text
-text = """
-Contact: user@example.com, (555) 123-4567
-Website: https://www.example.com
-Price: $299.99, Tag: #example
-Time: 2:30 PM, HTML: <div class="container">
-"""
-
-extracted = find_all_in_text(text)
-print(extracted["emails"])    # ['user@example.com']
-print(extracted["phones"])    # ['(555) 123-4567']
-print(extracted["urls"])      # ['https://www.example.com']
-print(extracted["currency"])  # ['$299.99']
-print(extracted["hashtags"])  # ['#example']
-print(extracted["times"])     # ['2:30 PM']
-print(extracted["html_tags"]) # ['<div class="container">']
-```
-
-## 🧪 Testing
-
-### Run Test Suite
-Execute the comprehensive test suite:
-
-```bash
-python test_cases.py
-```
-
-The test suite includes:
-- **Individual validation tests** for each data type
-- **Edge case testing** with invalid inputs
-- **Comprehensive extraction tests** with real-world examples
-- **Performance validation** and accuracy metrics
-
-### Run Demonstration
-See the tool in action with real-world examples:
-
-```bash
-python demo.py
-```
-
-The demonstration includes:
-- **Real-world text samples** from various sources
-- **Extraction examples** showing practical usage
-- **Validation demonstrations** with multiple data types
-- **Performance showcases** with large text blocks
-
-## 📊 Test Results
-
-### Validation Accuracy
-| Data Type | Test Cases | Accuracy | Edge Cases Handled |
-|-----------|------------|----------|-------------------|
-| Emails | 15 | 100% | Invalid formats, missing @, TLD validation |
-| Phone Numbers | 12 | 100% | Wrong separators, length validation |
-| URLs | 12 | 100% | Protocol validation, domain format |
-| Credit Cards | 12 | 100% | Separator consistency, length validation |
-| Time | 14 | 100% | 24h/12h format, invalid hours/minutes |
-| HTML Tags | 12 | 100% | Opening tags only, attribute handling |
-| Hashtags | 12 | 100% | Character validation, empty tags |
-| Currency | 12 | 100% | Format validation, decimal places |
-
-### Sample Test Output
-```
-EMAIL VALIDATION TEST CASES
-============================================================
-✅ PASS | user@example.com              | Expected: True  | Got: True
-✅ PASS | @domain.com                   | Expected: False | Got: False
-✅ PASS | firstname.lastname@company.co.uk | Expected: True  | Got: True
-✅ PASS | user@                         | Expected: False | Got: False
-
-Total tests: 15
-Passed: 15/15
-```
-
-## 🔧 Advanced Usage
-
-### Custom Validation
-Create custom validators for specific use cases:
-
-```python
-import re
-from alu_regex_data_extraction import RegexValidator
-
-# Custom validator for specific pattern
-CUSTOM_PATTERN = re.compile(r'^[A-Z]{2}\d{4}$')  # 2 letters + 4 digits
-custom_validator = RegexValidator("custom", CUSTOM_PATTERN)
-
-# Use the validator
-print(custom_validator.is_match("AB1234"))  # True
-print(custom_validator.is_match("abc1234")) # False
-```
-
-### Batch Processing
-Process multiple texts efficiently:
-
-```python
-texts = [
-    "Contact: user1@example.com, (555) 123-4567",
-    "Website: https://www.example.com, Price: $299.99",
-    "Social: #example #test, Time: 2:30 PM"
-]
-
-for i, text in enumerate(texts):
-    print(f"Text {i+1}:")
-    extracted = find_all_in_text(text)
-    for data_type, matches in extracted.items():
-        if matches:
-            print(f"  {data_type}: {matches}")
-```
-
 ## 🚨 Error Handling
 
 The tool includes comprehensive error handling:
@@ -207,11 +84,12 @@ Error: Credit card number must contain digits. Please enter a valid credit card 
 
 ```
 alu_regex-data-extraction-owizdom/
-├── alu_regex_data_extraction.py    # Main tool implementation
-├── test_cases.py                   # Comprehensive test suite
-├── demo.py                         # Demonstration script
-├── requirements.txt                # Dependencies and setup info
-├── README.md                       # This file
+├── core
+    |-----extractors.py
+    |-----regex_patterns.py
+|-- Readme.md
+|--- main.py
+|--- requirements.txt
 └── __pycache__/                    # Python cache files
 ```
 
