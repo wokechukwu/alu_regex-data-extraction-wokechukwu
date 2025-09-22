@@ -83,14 +83,13 @@ Error: Credit card number must contain digits. Please enter a valid credit card 
 ## 📁 Project Structure
 
 ```
-alu_regex-data-extraction-owizdom/
-├── core
-    |-----extractors.py
-    |-----regex_patterns.py
-|-- Readme.md
-|--- main.py
-|--- requirements.txt
-└── __pycache__/                    # Python cache files
+# ├── core/
+# │   ├── extractors.py        # extract_all function
+# │   ├── regex_patterns.py    # Regex patterns
+# ├── main.py                  # Entry point
+# ├── README.md
+# ├── requirements.txt
+# └── .gitignore
 ```
 
 ## 🔍 Regex Patterns
