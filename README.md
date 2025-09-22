@@ -43,8 +43,16 @@ A comprehensive Python utility for extracting and validating various data types 
 # Navigate to project directory
 cd alu_regex-data-extraction-owizdom
 
+#initiate virtual environment
+python3 -m venv venv
+
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
 # Run the interactive tool
-python alu_regex_data_extraction.py
+python main.py
 ```
 
 ## 🎯 Usage
